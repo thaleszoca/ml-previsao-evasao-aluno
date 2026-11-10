@@ -51,16 +51,14 @@ longo das origens (0,85 → 0,71 → 0,45); com 1 se mantinha (0,74 → 0,77 →
 
 **Compare o modelo com uma regra de uma coluna só.**
 
-Numa das modalidades, ordenar os alunos por "dias desde o último acesso ao ambiente
-virtual" — sem modelo nenhum — acertava **exatamente os mesmos evasores** que o
-pipeline com vinte features, com o mesmo p-valor.
+O teste roda em cada corte de cada modalidade. Quando ordenar os alunos por uma coluna
+só — "dias desde o último acesso ao ambiente virtual", por exemplo — acerta os mesmos
+evasores que o pipeline com vinte features, o modelo não se justifica: a regra é
+auditável, explicável ao aluno e não precisa de retreino.
 
-Nesse caso o modelo não se justifica: a regra é auditável, explicável ao aluno e não
-precisa de retreino.
-
-Resultado desse critério aplicado às cinco modalidades: **duas não publicaram.** Não por
-falta de desempenho absoluto — uma delas colocava 67% dos evasores numa fila de 15% da
-base, 4,5× o acaso — mas porque uma coluna entregava o mesmo.
+Resultado na graduação: o corte intermediário (`m2`) do EAD e do híbrido **ficou fora
+de produção**, porque uma coluna entregava o mesmo. Os demais cortes superaram a regra
+e foram publicados.
 
 > **Critério:** só publica modelo que supere a regra de uma coluna por margem que
 > sobreviva ao intervalo de confiança.
@@ -72,8 +70,8 @@ melhor de seis regras candidatas medida no próprio teste. Isso é seleção no 
 favorece a regra. Corrigido, a margem do modelo **aumentou**.
 
 **2. Medir o acaso num conjunto diferente do modelo.** Comparar o modelo medido
-out-of-fold (477 alunos) com o acaso simulado sobre a base inteira (776) **invertia a
-conclusão**.
+out-of-fold (só a parte da base que cai no teste) com o acaso simulado sobre a base
+inteira **invertia a conclusão**.
 
 **3. Selecionar regra numa base pequena.** Com ~300 evasores, a coorte de validação não
 tem tamanho para decidir entre cinco candidatas: a regra vencedora mudou, desabou no
